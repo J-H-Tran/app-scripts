@@ -20,7 +20,11 @@ jobs:
       - name: Checkout Repository B
         uses: actions/checkout@v3
         with:
-          repository: ${{github.repository_owner}}/app-env
+          repository: ${{ github.repository_owner }}/app-env
+          ref: main  # Specify the branch you want to check out
+
+      - name: Ensure app-env directory exists
+        run: mkdir -p app-env
 
       - name: Print Latest Commit Hash of Repository B
         run: |
