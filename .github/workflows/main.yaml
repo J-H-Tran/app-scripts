@@ -31,3 +31,4 @@ jobs:
           echo "Current Working Directory: $PWD"
           cd app-env
           git log -n 1 --format=%H
+          echo "Current Working Directory: $PWD"
