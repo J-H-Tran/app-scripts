@@ -1,1 +1,28 @@
-1ddddd
+name: Trigger Workflow
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  trigger_and_print:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository A
+        uses: actions/checkout@v3
+
+      - name: Print Current Working Directory
+        run: |
+          echo "Current Working Directory: $PWD"
+
+      - name: Checkout Repository B
+        uses: actions/checkout@v3
+        with:
+          repository: ${{github.repository_owner}}/app-env
+
+      - name: Print Latest Commit Hash of Repository B
+        run: |
+          cd app-env
+          git log -n 1 --format=%H
