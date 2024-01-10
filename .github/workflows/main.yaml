@@ -24,5 +24,6 @@ jobs:
 
       - name: Print Latest Commit Hash of Repository B
         run: |
+          echo "Current Working Directory: $PWD"
           cd app-env
           git log -n 1 --format=%H
